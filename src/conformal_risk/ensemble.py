@@ -29,7 +29,6 @@ import numpy as np
 
 from conformal_risk.var import _conformal_quantile
 
-
 BaseEstimator = Callable[[np.ndarray], float]
 
 

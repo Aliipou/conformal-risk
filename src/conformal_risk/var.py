@@ -35,7 +35,6 @@ Barber, R., Candes, E., Ramdas, A., & Tibshirani, R. (2023).
 from __future__ import annotations
 
 import math
-from collections import deque
 from typing import Sequence
 
 import numpy as np
@@ -150,8 +149,7 @@ class ConformalVaR:
     def _score(self, returns: np.ndarray) -> np.ndarray:
         if self.nonconformity == "loss":
             return -returns
-        # zscore: normalise by rolling std with window=20
-        window = min(20, len(returns))
+        # zscore: normalise by rolling std (window capped at 20)
         stds = np.array([
             returns[:max(i, 1)].std(ddof=0) or 1.0
             for i in range(len(returns))

@@ -1,8 +1,8 @@
 """Tests for ConformalVaR — coverage guarantee and API."""
 import numpy as np
 import pytest
-from conformal_risk.var import ConformalVaR, _conformal_quantile
 
+from conformal_risk.var import ConformalVaR, _conformal_quantile
 
 RNG = np.random.default_rng(42)
 NORMAL_RETURNS = RNG.normal(-0.0005, 0.01, 1000)
@@ -62,7 +62,7 @@ def test_var_monotone_in_alpha():
 def test_incremental_update():
     var = ConformalVaR(alpha=0.05, calibration_size=200)
     var.fit(NORMAL_RETURNS[:200])
-    v_before = var.predict()
+    var.predict()  # v_before — not checked, update is the focus
     var.update(NORMAL_RETURNS[200])
     v_after = var.predict()
     assert np.isfinite(v_after)
@@ -75,7 +75,6 @@ def test_prediction_interval_contains_var():
     var = ConformalVaR(alpha=0.05)
     var.fit(NORMAL_RETURNS[:500])
     lower, upper = var.predict_interval()
-    v = var.predict()
     # Upper end of return interval corresponds to lower loss = smaller VaR
     assert lower < upper
     assert np.isfinite(lower) and np.isfinite(upper)

@@ -19,8 +19,9 @@ Angelopoulos, A., & Bates, S. (2023).
 """
 from __future__ import annotations
 
-import numpy as np
 from typing import Sequence
+
+import numpy as np
 
 from conformal_risk.var import ConformalVaR, _conformal_quantile
 

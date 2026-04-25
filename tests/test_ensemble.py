@@ -1,8 +1,8 @@
 """Tests for EnsembleConformalRisk."""
 import numpy as np
 import pytest
-from conformal_risk.ensemble import EnsembleConformalRisk
 
+from conformal_risk.ensemble import EnsembleConformalRisk
 
 RNG = np.random.default_rng(3)
 RETURNS = RNG.normal(-0.0005, 0.01, 700)

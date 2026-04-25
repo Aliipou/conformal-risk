@@ -1,8 +1,8 @@
 """Tests for ConformalCVaR."""
 import numpy as np
 import pytest
-from conformal_risk.cvar import ConformalCVaR
 
+from conformal_risk.cvar import ConformalCVaR
 
 RNG = np.random.default_rng(7)
 RETURNS = RNG.normal(-0.0005, 0.01, 800)

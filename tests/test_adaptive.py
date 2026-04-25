@@ -1,8 +1,8 @@
 """Tests for AdaptiveConformalRisk (ACI)."""
 import numpy as np
 import pytest
-from conformal_risk.adaptive import AdaptiveConformalRisk
 
+from conformal_risk.adaptive import AdaptiveConformalRisk
 
 RNG = np.random.default_rng(1)
 
